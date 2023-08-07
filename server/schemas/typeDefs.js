@@ -4,8 +4,7 @@ type Product {
     name: String
     description: String
     image: String
-    price: Float
-    category: Category
+    bid: Float
     seller: String
     highestBidder: String
   }
@@ -13,5 +12,10 @@ type Product {
   type Query {
     products: [Product]
     product(_id: ID!): Product
+  }
+
+  type Mutation {
+    addProduct(name: String!, bid: Float!, seller: String!)
+    updateProduct(_id: ID!, bid: Float!, highestBidder: String!): Product
   }
 `;
