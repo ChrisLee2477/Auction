@@ -26,7 +26,6 @@ const productSchema = new Schema({
   },
   highestBidder: {
     type: String,
-    required: true,
     trim: true,
   },
 });
