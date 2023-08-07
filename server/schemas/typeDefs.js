@@ -15,7 +15,9 @@ type Product {
   }
 
   type Mutation {
-    addProduct(name: String!, bid: Float!, seller: String!)
+    addProduct(name: String!, bid: Float!, seller: String!): Product
     updateProduct(_id: ID!, bid: Float!, highestBidder: String!): Product
   }
 `;
+
+module.exports = typeDefs;

@@ -11,16 +11,17 @@ const resolvers = {
   },
   Mutation: {
     addProduct: async (parent, args) => {
-      const product = await product.create(args);
+      const product = await Product.create(args);
       return product;
     },
-    updateProduct: async (parent, { id, bid, highestBidder }) => {
+    updateProduct: async (parent, { _id, bid, highestBidder }) => {
       return await Product.findByIdAndUpdate(
-        { _id: id },
-        { bid },
-        { highestBidder },
+        _id,
+        { bid: bid, highestBidder: highestBidder },
         { new: true }
       );
     },
   },
 };
+
+module.exports = resolvers;
